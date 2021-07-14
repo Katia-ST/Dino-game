@@ -39,3 +39,10 @@ body {
     width: 100%;
     height: 200px;
 }
+
+.scoreboard {
+    text-align: center;
+    color: #8679b6;
+    margin: 50px 0;
+    font-family: arial;
+}

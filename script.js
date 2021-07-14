@@ -6,6 +6,7 @@ let position = 0;
 var jumpSound = document.getElementById("jumpSound");
 var music = document.getElementById("music");
 var gameOverSound = document.getElementById("gameOverSound");
+var points = 0;
 
 music.addEventListener("ended", function(){ music.currentTime = 0; music.play(); }, false);
 music.play();
@@ -30,6 +31,7 @@ function jump() {
                 if (position <= 0) {
                     clearInterval(downInterval);
                     jumpSound.play();
+                    points = points + 100;
                     isJumping = false;
                 } else {
                     position -= 20;
@@ -60,7 +62,7 @@ function createCactus() {
           clearInterval(leftInterval);
           music.pause();
           gameOverSound.play();
-          document.body.innerHTML = '<h1 class="game-over">Game over</h1>';     
+          document.body.innerHTML = '<h1 class="game-over">Game over</h1> <h2 class="scoreboard">Total score: '+ points+' </h2>';     
         } else {
             cactusPosition -= 10;
             cactus.style.left = cactusPosition + 'px';
@@ -71,6 +73,10 @@ function createCactus() {
 }
 
 createCactus();
+
+// function scoreboard() {
+//     document.body.innerHTML = '<h2 class="scoreboard"> Score:  points </h2>';        
+// }
 
 document.addEventListener('keyup', handleKeyUp);
 
